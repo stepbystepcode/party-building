@@ -42,9 +42,4 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ubuntu
         password: ${{ secrets.SSH_PASSWORD }}
-        script: |
-          ps -ef | grep java > /home/ubuntu/computer-design/1
-          pgrep java | xargs kill -9
-          ps -ef | grep java > /home/ubuntu/computer-design/2
-          nohup java -jar /home/ubuntu/computer-design/party-building-0.0.1-SNAPSHOT.jar &
-          ps -ef | grep java > /home/ubuntu/computer-design/3
+        script: /home/ubuntu/computer-design/run.sh
