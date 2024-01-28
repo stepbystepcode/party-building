@@ -33,8 +33,8 @@ jobs:
         username: ubuntu
         password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SERVER_PORT }}
-        local: "./build/libs/*.jar"
-        remote: "/home/ubuntu/computer-design/"
+        local: "./build/libs/party-building-0.0.1-SNAPSHOT.jar"
+        remote: "/home/ubuntu/computer-design/party-building-0.0.1-SNAPSHOT.jar"
 
     - name: Restart Server
       uses: appleboy/ssh-action@master
@@ -45,4 +45,4 @@ jobs:
         port: ${{ secrets.SERVER_PORT }}
         script: |
           pgrep java | xargs kill -9
-          nohup java -jar /home/ubuntu/computer-design/*.jar &
+          nohup java -jar /home/ubuntu/computer-design/party-building-0.0.1-SNAPSHOT.jar &
