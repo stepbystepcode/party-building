@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController
 data class ApiResponse(val msg: String, val code: Int)
 @RestController
 class ApiController {
-
+    // this is first api, helloworld
     @GetMapping("/api/test")
     fun testApi(): ApiResponse {
         return ApiResponse(msg = "Hello world!", code = 200)
