@@ -42,4 +42,6 @@ jobs:
         host: ${{ secrets.SERVER_HOST }}
         username: ubuntu
         password: ${{ secrets.SSH_PASSWORD }}
-        script: /home/ubuntu/computer-design/run.sh
+        script: |
+          pgrep java | xargs kill -9
+          nohup /home/ubuntu/jdk-21.0.2/bin/java -jar /home/ubuntu/computer-design/party-building-0.0.1-SNAPSHOT.jar > nohup.out 2> nohup.err < /dev/null &
