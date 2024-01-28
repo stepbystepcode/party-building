@@ -19,7 +19,10 @@ jobs:
         java-version: 21
 
     - name: Add secrets file
-      run: echo -e "spring.datasource.url=${{ secrets.DATABASE_URL }}\nspring.datasource.username=${{ secrets.DATABASE_USER }}\nspring.datasource.password=${{ secrets.PASSWORD }}\nspring.security.user.name=${{ secrets.DATABASE_USER }}\nspring.security.user.password=${{ secrets.PASSWORD }}" > src/main/resources/application.properties
+      run: |
+        pwd
+        ls
+        echo -e "spring.datasource.url=${{ secrets.DATABASE_URL }}\nspring.datasource.username=${{ secrets.DATABASE_USER }}\nspring.datasource.password=${{ secrets.PASSWORD }}\nspring.security.user.name=${{ secrets.DATABASE_USER }}\nspring.security.user.password=${{ secrets.PASSWORD }}" > src/main/resources/application.properties
 
     - name: Build with Gradle
       run: ./gradlew build
