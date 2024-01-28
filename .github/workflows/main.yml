@@ -27,14 +27,14 @@ jobs:
       run: ./gradlew build
 
     - name: Copy Files to Server
-      uses: appleboy/scp-action@master
+      uses: garygrossgarten/github-action-scp@release
       with:
         host: ${{ secrets.SERVER_HOST }}
         username: ubuntu
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        password: ${{ secrets.SSH_PASSWORD }}
         port: ${{ secrets.SERVER_PORT }}
-        source: "./build/libs/*.jar"
-        target: "/home/ubuntu/computer-design"
+        local: "./build/libs/*.jar"
+        remote: "/home/ubuntu/computer-design/"
 
     - name: Restart Server
       uses: appleboy/ssh-action@master
